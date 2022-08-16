@@ -11,12 +11,11 @@ class DAO {
 
     function insert(Model $model) {
         $sql = "INSERT INTO testtb (item1, item2)
-        values (?, ?)"
+        values (?, ?)";
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(1, $model->item1);
         $stmt->bindValue(2, $model->item2);
-
         $stmt->execute();
     }
 
