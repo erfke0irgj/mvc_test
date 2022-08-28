@@ -15,5 +15,6 @@ switch($uri_parse) {
 
     case "/list":
         Controller::list();
+        echo "bruh bruh bruh";
     break;
 }
