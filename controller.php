@@ -1,9 +1,14 @@
 <?php
 
+/** Controller handles the request from the user and tells to Model what to do with the request
+ *  Therefore this section worries about getting a failure or success of the entire request flow
+ *  if (success) then View1.php else View2.php 
+*/
+
 class Controller {
-    public static function register()
+    public static function form()
     {
-        include "register.php";
+        include "form.php";
     }
 
     public static function list() {

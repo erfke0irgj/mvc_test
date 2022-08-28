@@ -5,12 +5,12 @@ class DAO {
 
     function __construct()
     {
-        $dsn = "mysql:host=127.0.0.1:3307;dbname=testdb";
-        $this->connection = new PDO($dsn, "root", "etecjau");
+        $dsn = "mysql:host=127.0.0.1:3307;dbname=db_mvc";
+        $this->connection = new PDO($dsn, "root", "1234");
     }
 
     function insert(Model $model) {
-        $sql = "INSERT INTO testtb (item1, item2)
+        $sql = "INSERT INTO db_mvc (item1, item2)
         values (?, ?)";
 
         $stmt = $this->connection->prepare($sql);

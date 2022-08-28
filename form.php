@@ -1,3 +1,8 @@
+<!-- View section handles the data presentation of the data got from the Controller
+Not concerned about how to handle the final presentation of the data but how to present it (aesthetically) 
+Sends the presentation back to the Controller and then to the user
+-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +29,7 @@
 
 <div class="container">
     <form action="/save" method="post">        
-        <label for="item1">Item 1: </label>
+        <label for="">Item 1: </label>
         <input name="item1" type="text" />
         <br><br>
 

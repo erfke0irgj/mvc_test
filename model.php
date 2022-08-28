@@ -1,5 +1,10 @@
 <?php
 
+/** Model handles the data logic (validating, saving, updating, deleting)
+ * Interacts with the database through DAO (It just cares about interacting with the data lol)
+ * Sends the data to the Controller
+*/
+
 class Model {
     public $id, $item1, $item2;
 
