@@ -8,6 +8,17 @@
 class Controller {
     public static function form()
     {
+        include "model.php";
+
+        $model = new Model();
+
+        /** If there is the id, so its gonna happen the getById*/
+        if(isset($_GET['id']))
+        /** Converting the id number from the URL and using the getById function */
+            $model = $model->getById((int) $_GET['id']);
+
+        // var_dump($model);
+
         include "form.php";
     }
 
@@ -15,6 +26,9 @@ class Controller {
     public static function save()
     {
         include "model.php";
+
+        // var_dump($_POST);
+        // exit;
 
         /** New class instance */
         $model = new Model();
@@ -24,6 +38,7 @@ class Controller {
          *  Easy to understand, right?
         */
         
+        $model->id = $_POST['id'];
         $model->item1 = $_POST['item1'];
         $model->item2 = $_POST['item2'];
 
@@ -41,5 +56,15 @@ class Controller {
 
         /** Showing to the user the data presented in the /list page */
         include "list.php";
+    }
+
+    public static function delete()
+    {
+        include "model.php";
+
+        $model = new Model();
+        $model->delete((int) $_GET['id']);
+
+        header("Location: /list");
     }
 }

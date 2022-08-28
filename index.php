@@ -17,4 +17,8 @@ switch($url)
     case "/list":
         Controller::list();
     break;
+
+    case "/delete":
+        Controller::delete();
+    break;
 }

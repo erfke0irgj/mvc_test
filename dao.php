@@ -19,7 +19,9 @@ class DAO
     {
         $sql_text = "INSERT INTO info (item1, item2) values (?, ?)";
 
-        /** Basically just making the $sql_text not a text but something to identify the bindValue lol  */
+        /** Basically just making the $sql_text not a text but something to make the bindValue be identified lol 
+         *  We use for the first time the $sql_text
+        */
         $statement = $this->connection->prepare($sql_text);
         /** bindValue has its position in each ? from the values of $sql_text */
         $statement->bindValue(1, $model->item1);
@@ -32,7 +34,7 @@ class DAO
     }
 
     /** Getting all the data presentation in the database.
-     *  1 To do this, we are now connecting to the Model since the user request is coming from there
+     *  1 To do this, we are now sending the data to the Model since we need to connect to the Controller, then present all in the View
      *  function getAllRows(). Model::getAllRows()
     */
     public function select()
@@ -51,6 +53,37 @@ class DAO
 
     public function update($model)
     {
+        $sql_text = "UPDATE info SET item1=?, item2=? where id=?";
 
+        $statement = $this->connection->prepare($sql_text);
+        $statement->bindValue(1, $model->item1);
+        $statement->bindValue(2, $model->item2);
+        $statement->bindValue(3, $model->id);
+
+        $statement->execute();
+    }
+
+    public function delete(int $id)
+    {
+        $sql_text = "DELETE FROM info where id = ?";
+
+        $statement = $this->connection->prepare($sql_text);
+        $statement->bindValue(1, $id);
+
+        $statement->execute();
+    }
+
+    public function selectById(int $id)
+    {
+        include_once "model.php";
+        $sql_text = "SELECT * from info where id = ?";
+
+        $statement = $this->connection->prepare($sql_text);
+        $statement->bindValue(1, $id);
+
+        $statement->execute();
+
+        /** Getting the $model value */
+        return $statement->fetchObject("Model");
     }
 }
