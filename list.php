@@ -14,11 +14,13 @@
             <th>ITEM 2</th>
         </tr>
 
+        <!-- $rows from Model. 3 We just get the value as objects from the $rows and put them into HTML code -->
         <?php foreach($model->rows as $item): ?>
         <tr>
             <td><?= $item->id ?></td>
             <td><?= $item->item1 ?></td>
             <td><?= $item->item2 ?></td>
+        </tr>
         <?php endforeach ?>
     </table>
 </body>

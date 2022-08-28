@@ -11,24 +11,35 @@ class Controller {
         include "form.php";
     }
 
-    public static function list() {
-        // Adquirindo os dados da model e listando todos os registros
+    /** 2 Here it is: the save method with the user's data from form.php  */
+    public static function save()
+    {
         include "model.php";
-        
+
+        /** New class instance */
         $model = new Model();
-        $model-> getAllRows();
 
-        include "list.php";
-    }
+        /** Filling all the information from the form.php to the $model identifier
+         *  2 Actually just transporting the data from the Controller to the Model
+         *  Easy to understand, right?
+        */
+        
+        $model->item1 = $_POST['item1'];
+        $model->item2 = $_POST['item2'];
 
-    public static function save() {
-        include "model.php";
-
-        $item = new Model();
-        $item->item1 = $_POST["item1"];
-        $item->item2 = $_POST["item2"];
-        $item-> save();
+        $model->save();
 
         header("Location: /list");
+    }
+
+    public static function list()
+    {
+        include "model.php";
+
+        $model = new Model();
+        $model->getAllRows();
+
+        /** Showing to the user the data presented in the /list page */
+        include "list.php";
     }
 }

@@ -28,8 +28,10 @@ Sends the presentation back to the Controller and then to the user
 <body>
 
 <div class="container">
+    <!-- 1 Sending the requested data to Controller::save() -->
     <form action="/save" method="post">        
-        <label for="">Item 1: </label>
+    
+        <label for="item1">Item 1: </label>
         <input name="item1" type="text" />
         <br><br>
 

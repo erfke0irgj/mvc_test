@@ -1,10 +1,11 @@
 <?php
 
-$uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 include "controller.php";
 
-switch($uri_parse) {
+switch($url)
+{
     case "/form":
         Controller::form();
     break;
@@ -15,6 +16,5 @@ switch($uri_parse) {
 
     case "/list":
         Controller::list();
-        echo "bruh bruh bruh";
     break;
 }
