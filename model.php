@@ -6,7 +6,7 @@
 */
 
 class Model {
-    public $id, $item1, $item2;
+    public $id, $name, $age, $height, $pronouns, $nationality, $hobbies;
 
     /** Wanna keep the data presentation in rows. We must create a new identifier to make the data be presented
      *  in those rows
@@ -46,17 +46,17 @@ class Model {
     }
 
     /** getById function  */
-    /** Storing the $object with the  */
     public function getById(int $id)
     {
         include "dao.php";
         $dao = new DAO();
 
+        /** Storing the $object with the selectById() from DAO */
         $object = $dao->selectById($id);
 
-        /** If $object is not false, return the same. If its, its gonna happen a new Model */
+        /** If $object is not false, return the same. */
         if($object){ return $object;}
-        else {return new Model(); }
+        else {return new Model();} /** returns the $model->[value] into the input from html */
     }
 
     /** delete($id) from DAO */

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="flavicon.ico">
+    <link rel="stylesheet" href="bar.css">
+    <title>List</title>
+</head>
+
+<body>
+    <div class="bar">
+        <ul class="fpart">
+          <li id="fp_f_item"><a href="/home">HOME<span>(ホーム)</span></a></li>
+          <li id="fp_l_item"><a href="/create">Create<span>(作成する)</span></a></li>
+          <li><a href="/list">View list<span>(一覧を見る)</span></a></li>
+        </ul>
+        <ul class="spart">
+          <li id="sp_l_item"><a href="/singers/inabakumori">Inabakumori</a></li>
+          <li><a href="/singers/kagamine_len">Kagamine Len</a></li>
+          <li><a href="/singers/kagamine_rin">Kagamine Rin</a></li>
+          <li><a href="/singers/luo_tianyi">Luo Tianyi</a></li>
+          <li><a href="/singers/meiko">Meiko</a></li>
+          <li><a href="/singers/kaito">Kaito</a></li>
+          <li><a href="/singers/hatsune_miku">Hatsune Miku</a></li>
+        </ul>
+      </div>
+    <table>
+        <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Height</th>
+            <th>Pronouns</th>
+            <th>Nationality</th>
+            <th>Hobbies</th>
+        </tr>
+
+        <!-- $rows from Model. 3 We just get the value as objects from the $rows and put them into HTML code -->
+        <?php foreach($model->rows as $item): ?>
+        <tr>
+            <td><a href="/delete?id=<?=$item->id?>">X</a></td>
+            <td><?= $item->id ?></td>
+            <td><a href="/create?id=<?=$item->id?>"><?= $item->name ?></a></td>
+            <td><?= $item->age ?></td>
+            <td><?= $item->height ?></td>
+            <td><?= $item->pronouns ?></td>
+            <td><?= $item->nationality ?></td>
+            <td><?= $item->hobbies ?></td>
+        </tr>
+        <?php endforeach ?>
+
+        <?php if(count($model->rows) == 0): ?>
+            <tr>
+                <td colspan="8">Nothing here.</td>
+            </tr>
+        <?php endif ?>
+    </table>
+</body>
+</html>

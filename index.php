@@ -6,7 +6,7 @@ include "controller.php";
 
 switch($url)
 {
-    case "/form":
+    case "/create":
         Controller::form();
     break;
 
@@ -20,5 +20,21 @@ switch($url)
 
     case "/delete":
         Controller::delete();
+    break;
+
+    case "/createonemore":
+        include "onemore.html";
+    break;
+
+    case "/home":
+        include "home.html";
+    break;
+
+    case "/singers/hatsune_miku":
+        include "miku.html";
+    break;
+
+    case "/singers/inabakumori":
+        include "inabakumori.html";
     break;
 }

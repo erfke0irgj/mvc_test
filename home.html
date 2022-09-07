@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="flavicon.ico">
+    <link rel="stylesheet" href="bar.css">
+    <title>Home</title>
+</head>
+
+<style>
+    .content {
+        margin:0;
+        margin-bottom: 10em;
+    }
+
+    body {
+        background-color: #18191a;
+    }
+
+    .boxes {
+        border: 1px solid #008b80;
+        border-radius: 5px;
+        background-color: #1b1c1d;
+        margin-bottom: 2em;
+        margin-right: 0;
+    }
+
+    .box1 {
+        width: 100%;
+        border-bottom: 1px solid #353535;
+    }
+
+    .title h1[id="fh1"], .title h1 {
+        color: #c5edea;
+        font-size: 1.8em;
+        font-family: MS UI Gothic;
+        font-weight: lighter;
+        margin:0;
+        margin-top: 0.8em;
+        margin-left: 1em;
+        padding: 0;
+        padding-bottom: 0.5em;
+    }
+
+    .title h1 {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+    .box2 {
+        width: 100%;
+        margin-top: 1em;
+        border-bottom: 1px solid #353535;
+    }
+
+    .box2 p {
+        color: #c7c7c7;
+        margin: 0;
+        margin-left: 1em;
+        margin-top: 0.6em;
+        margin-right: 20px;
+        margin-bottom: 1.3em;
+        text-indent: 3rem;
+        font-size: 1em;
+        font-family: MS Gothic;
+    }
+
+    .box3 {
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #008b80;
+    }
+
+    img {
+        max-width: calc(100% - 2em);
+        max-height: 30em;
+        text-align: center;
+        margin-top: 0.3em;
+        margin-bottom: 0.5em;
+    }
+
+    .sortbar {
+        margin-left: 3em;
+        margin-top: 3em;
+        border-bottom: 1px solid white;
+        width: 26em;
+        margin-bottom: 2.5em;
+    }
+
+    .sortbar li {
+        display: inline;
+        margin: 0;
+        padding: 4px 15px 4px 15px;
+        font-family: MS UI Gothic;
+        color: white;
+        font-weight: bold;
+        margin-left: 2em;
+        font-size: 1.4em;
+    }
+
+    .sortbar li[class="fsortitem"] {
+        margin-left: 1.5em;
+        background-color: #0cccbc;
+        border-radius: 1px;
+        color: black;
+        font-weight: bolder;
+    }
+
+    .sortbar ul {
+        padding: 0;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .sortbar li:hover {
+        background-color: #0cccbc;
+        border-radius: 1px;
+        color: black;
+        font-weight: bolder;
+        cursor: pointer;
+        transition-duration: 100ms;
+    }
+
+    .boxinfo {
+        width: 100%;
+        height: 1em;
+    }
+    .boxinfo span {
+        color: #848484;
+        font-size: 1em;
+        font-family: MS Mincho;
+        float: right;
+        margin-top: 0.5em;
+        cursor:default;
+    }
+
+    .boxinfo span[id="date"] {
+        float:left;
+        margin-left: 0;
+        margin-right: 0;
+        margin-left: 1em;
+        margin-top: 0.5em;
+    }
+
+    .boxinfo span[id="user"] {
+        color:#548f8a;
+        margin: 0;
+        margin-right: 1em;
+        margin-left: 7px;
+        cursor: pointer;
+    }
+
+    .boxinfo span[id="user"]:hover {
+        color: white;
+    }
+
+    .title {
+        padding: 0;
+        margin: 0;
+    }
+
+    .box4 {
+        width:100%;
+        margin-top: 0.3em;
+        height:2em;
+    }
+
+    .box4 p, .box4 span {
+        font-size: 1.2em;
+        font-family: MS Mincho;
+        color: #c5edea;
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box4 span {
+        font-size: 0.7em;
+        margin-top: 6px;
+        margin-left: 4px;
+    }
+
+    .box4 p:hover {
+        color: white;
+    }
+
+    .box4 p[id="comment"]{
+        margin-right: 1em;
+    }
+
+    .box4 p[id="like"], .box4 p[id="dislike"] {
+        float: left;
+    }
+
+    .box4 p[id="like"] {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .box4 p[id="comment"]:hover, .box4 p[id="like"]:hover, .box4 p[id="dislike"]:hover {
+        color: white;
+        cursor: pointer;
+    }
+
+    .hugebox {
+        float: left;
+        display: inline;
+        width: 45%;
+        margin-left: 10em;
+    }
+
+    .sidebar {
+        margin-right: 6em;
+        margin-top: 6em;
+        border: 1px solid #008b80;
+        border-radius: 5px;
+        float: right;
+    }
+
+    .sidebar span {
+        font-size: 1.4em;
+        font-family: MS Gothic;
+        color: #c5edea;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+</style>
+<body>
+    <div class="bar">
+        <ul class="fpart">
+          <li id="fp_f_item"><a href="/home">HOME<span>(ホーム)</span></a></li>
+          <li id="fp_l_item"><a href="/create">Create<span>(作成する)</span></a></li>
+          <li><a href="/list">View list<span>(一覧を見る)</span></a></li>
+        </ul>
+        <ul class="spart">
+          <li id="sp_l_item"><a href="/singers/inabakumori">Inabakumori</a></li>
+          <li><a href="/singers/kagamine_len">Kagamine Len</a></li>
+          <li><a href="/singers/kagamine_rin">Kagamine Rin</a></li>
+          <li><a href="/singers/luo_tianyi">Luo Tianyi</a></li>
+          <li><a href="/singers/meiko">Meiko</a></li>
+          <li><a href="/singers/kaito">Kaito</a></li>
+          <li><a href="/singers/hatsune_miku">Hatsune Miku</a></li>
+        </ul>
+    </div>
+    
+    <div class="hugebox">
+        <div class="sortbar">
+            <ul>
+                <li class="fsortitem">Best</li>
+                <li>Hot</li>
+                <li>Recent</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="boxes">
+                <div class="box1">
+                    <div class="boxinfo">
+                        <span id="date">yesterday, aug 31</span>
+                        <span>by<span id="user">hko10</span>
+                    </div>
+                    <div class="title">
+                        <h1 id="fh1">HER BIRTHDAY!</h1>  
+                    </div>
+                </div>
+                <div class="box2">
+                    <p>YES! THATS WHAT UR SEEING. Her birthday is the happiest day of our years. Always. 2007 was the year when she was born and now in 2022 she makes 15. I cant hold my tears my girl is growing up i remember ...</p>
+                </div>
+                <div class="box3">
+                    <img src="https://cdn.donmai.us/original/cb/69/__hatsune_miku_yuki_miku_sakura_miku_magical_mirai_miku_yuki_miku_and_5_more_vocaloid_and_1_more_drawn_by_uenomigi__cb69f369016f35677203c2ec360a595c.jpg">
+                </div>
+                <div class="box4">
+                    <p id="comment">comment<span>(15k)</span></p>
+                    <p id="like">like<span>(122k)</span></p>
+                    <p id="dislike">dislike<span>(341)</span></p>
+                </div>
+            </div>
+
+            <div class="boxes">
+                <div class="box1">
+                    <div class="boxinfo">
+                        <span id="date">4 days ago</span>
+                        <span>by<span id="user">thesusmanxd</span>
+                    </div>
+                    <div class="title">
+                        <h1>I still cant understand the difference between vocaloid1 and other versions</h1>  
+                    </div>
+                </div>
+                <div class="box2">
+                    <p>well i know the first one is the oldest and its made from a poor well developed software (at least thats how i think) but there is literally NO difference in the voices lol</p>
+                </div>
+                <div class="box4">
+                    <p id="comment">comment<span>(12k)</span></p>
+                    <p id="like">like<span>(32k)</span></p>
+                    <p id="dislike">dislike<span>(7k)</span></p>
+                </div>
+            </div>
+
+            <div class="boxes">
+                <div class="box1">
+                    <div class="boxinfo">
+                        <span id="date">2 days ago</span>
+                        <span>by<span id="user">butterpie23</span>
+                    </div>
+                    <div class="title">
+                        <h1>a LEGEND came back</h1>  
+                    </div>
+                </div>
+                <div class="box2">
+                    <p>even though shes kinda underrated i dont care ngl. she just released a new song (sinktank) in her adorable youtube channel.</p>
+                </div>
+                <div class="box3">
+                    <img src="https://www.lyrical-nonsense.com/wp-content/uploads/2022/08/inabakumori-Sinktank-Video.jpg">
+                </div>
+                <div class="box4">
+                    <p id="comment">comment<span>(9k)</span></p>
+                    <p id="like">like<span>(75k)</span></p>
+                    <p id="dislike">dislike<span>(2k)</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <span>Politics</span>
+        <span>Help</span>
+    </div>
+</body>
+</html>

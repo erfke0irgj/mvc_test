@@ -7,7 +7,7 @@ class DAO
     public function __construct()
     {
         /** data source name */
-        $dsn = "mysql:host=127.0.0.1:3306;dbname=db_mvc";
+        $dsn = "mysql:host=127.0.0.1:3306;dbname=vocaloid";
 
         /** Wanna keep the mysql user information (php data objects) in something.
          *  Not a new $connection identifier but a CLASS PROPERTY. So $this->connection
@@ -17,15 +17,19 @@ class DAO
 
     public function insert(Model $model)
     {
-        $sql_text = "INSERT INTO info (item1, item2) values (?, ?)";
+        $sql_text = "INSERT INTO v_info (name, age, height, pronouns, nationality, hobbies) values (?, ?, ?, ?, ?, ?)";
 
         /** Basically just making the $sql_text not a text but something to make the bindValue be identified lol 
          *  We use for the first time the $sql_text
         */
         $statement = $this->connection->prepare($sql_text);
         /** bindValue has its position in each ? from the values of $sql_text */
-        $statement->bindValue(1, $model->item1);
-        $statement->bindValue(2, $model->item2);
+        $statement->bindValue(1, $model->name);
+        $statement->bindValue(2, $model->age);
+        $statement->bindValue(3, $model->height);
+        $statement->bindValue(4, $model->pronouns);
+        $statement->bindValue(5, $model->nationality);
+        $statement->bindValue(6, $model->hobbies);
 
         /** Once the interrogation values are replaced by item1 and item2, we do execute 
          *  4 and FINALLY insert the data into the database
@@ -34,12 +38,12 @@ class DAO
     }
 
     /** Getting all the data presentation in the database.
-     *  1 To do this, we are now sending the data to the Model since we need to connect to the Controller, then present all in the View
+     *  1 To do this, we are now sending the data to the Model since we need to connect to the Controller, then present all of it in the View
      *  function getAllRows(). Model::getAllRows()
     */
     public function select()
     {
-        $sql_text = "SELECT * from info";
+        $sql_text = "SELECT * from v_info";
 
         $statement = $this->connection->prepare($sql_text);
         $statement->execute();
@@ -53,19 +57,23 @@ class DAO
 
     public function update($model)
     {
-        $sql_text = "UPDATE info SET item1=?, item2=? where id=?";
+        $sql_text = "UPDATE v_info SET name=?, age=?, height=?, pronouns=?, nationality=?, hobbies=? where id=?";
 
         $statement = $this->connection->prepare($sql_text);
-        $statement->bindValue(1, $model->item1);
-        $statement->bindValue(2, $model->item2);
-        $statement->bindValue(3, $model->id);
+        $statement->bindValue(1, $model->name);
+        $statement->bindValue(2, $model->age);
+        $statement->bindValue(3, $model->height);
+        $statement->bindValue(4, $model->pronouns);
+        $statement->bindValue(5, $model->nationality);
+        $statement->bindValue(6, $model->hobbies);
+        $statement->bindValue(7, $model->id);
 
         $statement->execute();
     }
 
     public function delete(int $id)
     {
-        $sql_text = "DELETE FROM info where id = ?";
+        $sql_text = "DELETE FROM v_info where id = ?";
 
         $statement = $this->connection->prepare($sql_text);
         $statement->bindValue(1, $id);
@@ -76,7 +84,7 @@ class DAO
     public function selectById(int $id)
     {
         include_once "model.php";
-        $sql_text = "SELECT * from info where id = ?";
+        $sql_text = "SELECT * from v_info where id = ?";
 
         $statement = $this->connection->prepare($sql_text);
         $statement->bindValue(1, $id);

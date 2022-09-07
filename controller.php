@@ -19,7 +19,7 @@ class Controller {
 
         // var_dump($model);
 
-        include "form.php";
+        include "create.html";
     }
 
     /** 2 Here it is: the save method with the user's data from form.php  */
@@ -39,12 +39,16 @@ class Controller {
         */
         
         $model->id = $_POST['id'];
-        $model->item1 = $_POST['item1'];
-        $model->item2 = $_POST['item2'];
+        $model->name = $_POST['name'];
+        $model->age = $_POST['age'];
+        $model->height = $_POST['height'];
+        $model->pronouns = $_POST['pronouns'];
+        $model->nationality = $_POST['nationality'];
+        $model->hobbies = $_POST['hobbies'];
 
         $model->save();
 
-        header("Location: /list");
+        header("Location: /createonemore");
     }
 
     public static function list()
@@ -55,7 +59,7 @@ class Controller {
         $model->getAllRows();
 
         /** Showing to the user the data presented in the /list page */
-        include "list.php";
+        include "list.html";
     }
 
     public static function delete()
