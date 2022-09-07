@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    
+}
+
+.bar {
+    width: 100%;
+    height: 6.5em;
+    background-color: #30d5c8;
+}
+
+.fpart {
+    display: block;
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 0.5em;
+    height: 65%;
+}
+
+.fpart li {
+    display: inline;
+    font-family: "MS UI Gothic";
+    font-size: 2.5em;
+    color: black;
+    margin-right: 2em;
+    float: right;
+    padding: 0;
+    cursor: pointer;
+    padding-top: 0.5em;
+}
+
+.fpart li a {
+    padding: 10px;
+}
+.fpart span {
+    font-size: 0.5em;
+    padding-left: 10px;
+    font-family: "MS Gothic";
+    font-weight: bold;
+}
+
+.fpart li:hover {
+    transition-duration: 0.2s;
+    text-shadow: 3px 0 #fff, -3px 0 #fff, 0 3px #fff, 0 -3px #fff;
+}
+
+li[id="fp_l_item"] {
+    margin-right: 3rem;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+}
+
+li[id="fp_f_item"] {
+    float:left;
+    margin:0;
+    margin-left: 1.5rem;
+    font-size: 3.2em;
+    padding-top: 0;
+    padding: 10;
+    margin-top: 3px;
+}
+
+.fpart li[id="fp_f_item"] a {
+    display:block;
+}
+
+.fpart li[id="fp_f_item"] span {
+    display:block;
+    font-size: 0.4em;
+    padding: 0;
+    text-align: center;
+}
+
+.spart {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    
+}
+
+.spart li {
+    display: inline;
+    padding: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+    float: right;
+    border-right: 1px solid black;
+}
+
+.spart li[id="sp_l_item"] {
+    margin-right: 2rem;
+    padding-right: 0;
+    border: none;
+}
+
+.spart li a {
+    font-family: MS Gothic;
+    font-size: 0.9em;
+}
+
+.spart li a:hover {
+    color: white;
+    transition-duration: 150ms;
+}
+
+a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+}
