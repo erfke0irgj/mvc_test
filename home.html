@@ -7,177 +7,177 @@
     <link rel="icon" type="image/x-icon" href="flavicon.ico">
     <link rel="stylesheet" href="bar.css">
     <title>Home</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #18191a;
+        }
+    
+        .img {
+            max-width: 40%;
+        }
+    
+        .title {
+            width: 100%;
+            margin-top: 10em;
+            padding-bottom: 4em;
+            margin-bottom: 5em;
+            border-bottom: 10px solid #054641;
+            cursor: default;
+        }
+    
+        .title h1 {
+            font-family: MS UI Gothic;
+            font-weight: bold;
+            color:#d3eceb;
+            font-size: 6em;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 0.5em;
+            display: block;
+        }
+    
+        .title span {
+            font-family: MS PGothic;
+            font-size: 4em;
+            color:#d3eceb;
+            text-align: center;
+            display: block;
+        }
+    
+        .img[id="1"] {
+            border-bottom: 4px solid #12b1a3;
+            border-radius: 50%;
+        }
+    
+        .dimage1 {
+            display: inline;
+            margin-left: 2em;
+        }
+        
+        .m1 {
+            display: inline;
+            float:right;
+            margin-right: 3em;
+            cursor: default;
+        }
+    
+        .m1 h2 {
+            margin-top: 1.5em;
+            font-size: 4em;
+            text-align: right;
+            display: block;
+            margin-bottom: 0.1em;
+        }
+    
+        .m1 span {
+            float: right;
+        }
+    
+        h2 {
+            margin: 0;
+        }
+    
+        .m1 span[id="extra"] {
+            font-size: 1em;
+            float: right;
+            color: #18887f;
+            margin-right: 1em;
+            display: block;
+            text-shadow: none;
+        }
+    
+        .content {
+            margin-bottom: 8em;
+        }
+    
+        .jp1 {
+            display: block;
+            margin-top: 2.2em;
+        }
+    
+        .box1, .box2 {
+            display: block;
+            width: 100%;
+        }
+    
+        .box1 {
+            padding-bottom: 5em;
+            border-bottom: 20px solid #28bdb0;
+        }
+    
+        .m2, .dimage2 {
+            display: inline;
+        }
+        
+        .m2 {
+            margin-left: 2em;
+            float: left;
+            margin-top: 3em;
+            cursor: default;
+        }
+    
+        .img[id="2"] {
+            float: right;
+            margin-right: 2em;
+            margin-top: -9em;
+        }
+    
+        .m2 h2 {
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+    
+        .content h2 {
+            font-family: MS Gothic;
+            font-size: 4em;
+            color:#7ecfcb;
+            text-shadow: 1px 0px 1px #146e67, 1px 0px 2px #146e67;
+        }
+    
+        .jp1 span, .jp2 span {
+            font-family: MS Gothic;
+            font-size: 1.9em;
+            color:#7ecfcb;
+            display: block;
+            text-shadow: 1px 0px 1px #146e67, 1px 0px 2px #146e67;
+        }
+    
+        .jp2 {
+            display: block;
+            float: left;
+            margin-top: 1.8em;
+        }
+    
+        button {
+            width: 100%;
+            height: 1em;
+            font-size: 4em;
+            display: block;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            background-color: #2beede;
+            font-family: MS UI Gothic;
+            color: black;
+            transition: 300ms;
+        }
+    
+        button:hover {
+            color: white;
+            background-color: #61f0e4;
+            box-shadow: 9px 0px #61f0e4;
+            text-shadow: 2px 0px 3px white, 0px 2px 3px white, -2px 0px 3px white, 0px -2px 3px white;
+            cursor: pointer;
+            height:2em;
+            font-size: 6;
+            transition-duration: 300ms;
+        }
+    </style>
 </head>
-
-<style>
-    body {
-        margin: 0;
-        background-color: #18191a;
-    }
-
-    .img {
-        max-width: 40%;
-    }
-
-    .title {
-        width: 100%;
-        margin-top: 10em;
-        padding-bottom: 4em;
-        margin-bottom: 5em;
-        border-bottom: 10px solid #054641;
-        cursor: default;
-    }
-
-    .title h1 {
-        font-family: MS UI Gothic;
-        font-weight: bold;
-        color:#d3eceb;
-        font-size: 6em;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        margin-bottom: 0.5em;
-        display: block;
-    }
-
-    .title span {
-        font-family: MS PGothic;
-        font-size: 4em;
-        color:#d3eceb;
-        text-align: center;
-        display: block;
-    }
-
-    .img[id="1"] {
-        border-bottom: 4px solid #12b1a3;
-        border-radius: 50%;
-    }
-
-    .dimage1 {
-        display: inline;
-        margin-left: 2em;
-    }
-    
-    .m1 {
-        display: inline;
-        float:right;
-        margin-right: 3em;
-        cursor: default;
-    }
-
-    .m1 h2 {
-        margin-top: 1.5em;
-        font-size: 4em;
-        text-align: right;
-        display: block;
-        margin-bottom: 0.1em;
-    }
-
-    .m1 span {
-        float: right;
-    }
-
-    h2 {
-        margin: 0;
-    }
-
-    .m1 span[id="extra"] {
-        font-size: 1em;
-        float: right;
-        color: #18887f;
-        margin-right: 1em;
-        display: block;
-        text-shadow: none;
-    }
-
-    .content {
-        margin-bottom: 8em;
-    }
-
-    .jp1 {
-        display: block;
-        margin-top: 2.2em;
-    }
-
-    .box1, .box2 {
-        display: block;
-        width: 100%;
-    }
-
-    .box1 {
-        padding-bottom: 5em;
-        border-bottom: 20px solid #28bdb0;
-    }
-
-    .m2, .dimage2 {
-        display: inline;
-    }
-    
-    .m2 {
-        margin-left: 2em;
-        float: left;
-        margin-top: 3em;
-        cursor: default;
-    }
-
-    .img[id="2"] {
-        float: right;
-        margin-right: 2em;
-        margin-top: -9em;
-    }
-
-    .m2 h2 {
-        margin: 0;
-        padding: 0;
-        display: block;
-    }
-
-    .content h2 {
-        font-family: MS Gothic;
-        font-size: 4em;
-        color:#7ecfcb;
-        text-shadow: 1px 0px 1px #146e67, 1px 0px 2px #146e67;
-    }
-
-    .jp1 span, .jp2 span {
-        font-family: MS Gothic;
-        font-size: 1.9em;
-        color:#7ecfcb;
-        display: block;
-        text-shadow: 1px 0px 1px #146e67, 1px 0px 2px #146e67;
-    }
-
-    .jp2 {
-        display: block;
-        float: left;
-        margin-top: 1.8em;
-    }
-
-    button {
-        width: 100%;
-        height: 1em;
-        font-size: 4em;
-        display: block;
-        font-weight: bold;
-        text-align: center;
-        border: none;
-        background-color: #2beede;
-        font-family: MS UI Gothic;
-        color: black;
-        transition: 300ms;
-    }
-
-    button:hover {
-        color: white;
-        background-color: #61f0e4;
-        box-shadow: 9px 0px #61f0e4;
-        text-shadow: 2px 0px 3px white, 0px 2px 3px white, -2px 0px 3px white, 0px -2px 3px white;
-        cursor: pointer;
-        height:2em;
-        font-size: 6;
-        transition-duration: 300ms;
-    }
-</style>
 <body>
     <div class="bar">
         <ul class="fpart">
