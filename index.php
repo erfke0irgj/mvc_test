@@ -22,19 +22,11 @@ switch($url)
         Controller::delete();
     break;
 
-    case "/createonemore":
-        include "onemore.html";
+    case "/added":
+        Controller::veryfirst();
     break;
 
     case "/home":
         include "home.html";
-    break;
-
-    case "/singers/hatsune_miku":
-        include "miku.html";
-    break;
-
-    case "/singers/inabakumori":
-        include "inabakumori.html";
     break;
 }

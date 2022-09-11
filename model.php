@@ -6,22 +6,23 @@
 */
 
 class Model {
-    public $id, $name, $age, $height, $pronouns, $nationality, $hobbies;
+    public $id, $name, $age, $height, $weight, $pronouns, $nationality, $desc;
 
     /** Wanna keep the data presentation in rows. We must create a new identifier to make the data be presented
      *  in those rows
      */
     public $rows;
 
-    /** The data from the user is going to be saved in mysql database */
+    // The data from the user is going to be saved in mysql database
     public function save()
     {
-        /** Once DAO file is included we keep the interaction between the Model and the database through DAO */
+        // Once DAO file is included we keep the interaction between the Model and the database through DAO
         include "dao.php";
 
+        // new DAO instance
         $dao = new DAO();
 
-        /** If the received data from Controller is empty, so insert them */
+        // If the id is empty on DAO, so insert them
         if(empty($this->id))
         {
             /** All the information from $model to the $dao identifier
@@ -30,36 +31,38 @@ class Model {
             $dao->insert($this);
         }
         else {
+            // filled information on form ($model) is gonna be updated if $this->id already exists in DAO
             $dao->update($this);
         }
     }
 
-    //** function getAllRows() in Model */
+    // function getAllRows() in Model
     public function getAllRows()
     {
         include "dao.php";
         
         $dao = new DAO();
 
-        /** 2 Keeping the return value (from FETCH_ALL) in $rows identifier. So it receives the select() method with the objects from DAO */
+        // 2 Keeping the return value (from FETCH_ALL) in $rows identifier. So it receives the select() method with the objects from DAO */
         $this->rows = $dao->select();
     }
 
-    /** getById function  */
+    // getById function 
     public function getById(int $id)
     {
         include "dao.php";
         $dao = new DAO();
 
-        /** Storing the $object with the selectById() from DAO */
+        // Storing the $object with the selectById() from DAO
         $object = $dao->selectById($id);
+        // $object is $statement->fetchObject("Model");
+        // in form of object
 
-        /** If $object is not false, return the same. */
-        if($object){ return $object;}
-        else {return new Model();} /** returns the $model->[value] into the input from html */
+        if($object){ return $object;} // if $dao->selectById($id) actually exists and its not false, it returns the same
+        else {return new Model();} // if not, an entire new empty Model instance is created :>
     }
 
-    /** delete($id) from DAO */
+    // delete($id) from DAO
     public function delete(int $id)
     {
         include "dao.php";

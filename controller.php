@@ -12,9 +12,10 @@ class Controller {
 
         $model = new Model();
 
-        /** If there is the id, so its gonna happen the getById*/
+        // If there is the id, so its gonna happen the getById
         if(isset($_GET['id']))
-        /** Converting the id number from the URL and using the getById function */
+        // // Filling the Model with the gotten information from getById() and specified id ($_GET['id'])
+        
             $model = $model->getById((int) $_GET['id']);
 
         // var_dump($model);
@@ -22,7 +23,7 @@ class Controller {
         include "create.html";
     }
 
-    /** 2 Here it is: the save method with the user's data from form.php  */
+    // 2 Here it is: the save method with the user's data from form.php
     public static function save()
     {
         include "model.php";
@@ -30,7 +31,7 @@ class Controller {
         // var_dump($_POST);
         // exit;
 
-        /** New class instance */
+        // New class instance
         $model = new Model();
 
         /** Filling all the information from the form.php to the $model identifier
@@ -42,13 +43,14 @@ class Controller {
         $model->name = $_POST['name'];
         $model->age = $_POST['age'];
         $model->height = $_POST['height'];
+        $model->weight = $_POST['weight'];
         $model->pronouns = $_POST['pronouns'];
         $model->nationality = $_POST['nationality'];
-        $model->hobbies = $_POST['hobbies'];
+        $model->desc = $_POST['desc'];
 
         $model->save();
 
-        header("Location: /createonemore");
+        header("Location: /added");
     }
 
     public static function list()
@@ -58,7 +60,7 @@ class Controller {
         $model = new Model();
         $model->getAllRows();
 
-        /** Showing to the user the data presented in the /list page */
+        // Showing to the user the data presented in the /list page
         include "list.html";
     }
 
@@ -70,5 +72,15 @@ class Controller {
         $model->delete((int) $_GET['id']);
 
         header("Location: /list");
+    }
+
+    public static function veryfirst()
+    {
+        include "model.php";
+
+        $model = new Model();
+        $model->getAllRows();
+
+        include "added.html";
     }
 }

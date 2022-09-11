@@ -6,7 +6,7 @@ class DAO
 
     public function __construct()
     {
-        /** data source name */
+        // data source name
         $dsn = "mysql:host=127.0.0.1:3306;dbname=vocaloid";
 
         /** Wanna keep the mysql user information (php data objects) in something.
@@ -17,7 +17,7 @@ class DAO
 
     public function insert(Model $model)
     {
-        $sql_text = "INSERT INTO v_info (name, age, height, pronouns, nationality, hobbies) values (?, ?, ?, ?, ?, ?)";
+        $sql_text = "INSERT INTO v_info (name, age, height, weight, pronouns, nationality, description) values (?, ?, ?, ?, ?, ?, ?)";
 
         /** Basically just making the $sql_text not a text but something to make the bindValue be identified lol 
          *  We use for the first time the $sql_text
@@ -27,9 +27,10 @@ class DAO
         $statement->bindValue(1, $model->name);
         $statement->bindValue(2, $model->age);
         $statement->bindValue(3, $model->height);
-        $statement->bindValue(4, $model->pronouns);
-        $statement->bindValue(5, $model->nationality);
-        $statement->bindValue(6, $model->hobbies);
+        $statement->bindValue(4, $model->weight);
+        $statement->bindValue(5, $model->pronouns);
+        $statement->bindValue(6, $model->nationality);
+        $statement->bindValue(7, $model->desc);
 
         /** Once the interrogation values are replaced by item1 and item2, we do execute 
          *  4 and FINALLY insert the data into the database
@@ -57,16 +58,17 @@ class DAO
 
     public function update($model)
     {
-        $sql_text = "UPDATE v_info SET name=?, age=?, height=?, pronouns=?, nationality=?, hobbies=? where id=?";
+        $sql_text = "UPDATE v_info SET name=?, age=?, height=?, weight=?, pronouns=?, nationality=?, description=? where id=?";
 
         $statement = $this->connection->prepare($sql_text);
         $statement->bindValue(1, $model->name);
         $statement->bindValue(2, $model->age);
         $statement->bindValue(3, $model->height);
-        $statement->bindValue(4, $model->pronouns);
-        $statement->bindValue(5, $model->nationality);
-        $statement->bindValue(6, $model->hobbies);
-        $statement->bindValue(7, $model->id);
+        $statement->bindValue(4, $model->weight);
+        $statement->bindValue(5, $model->pronouns);
+        $statement->bindValue(6, $model->nationality);
+        $statement->bindValue(7, $model->desc);
+        $statement->bindValue(8, $model->id);
 
         $statement->execute();
     }
@@ -91,7 +93,6 @@ class DAO
 
         $statement->execute();
 
-        /** Getting the $model value */
         return $statement->fetchObject("Model");
     }
 }
