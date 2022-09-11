@@ -19,7 +19,6 @@ class Controller {
             $model = $model->getById((int) $_GET['id']);
 
         // var_dump($model);
-
         include "create.html";
     }
 

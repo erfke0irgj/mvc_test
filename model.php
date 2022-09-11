@@ -12,7 +12,6 @@ class Model {
      *  in those rows
      */
     public $rows;
-
     // The data from the user is going to be saved in mysql database
     public function save()
     {
