@@ -7,12 +7,12 @@ class DAO
     public function __construct()
     {
         // data source name
-        $dsn = "mysql:host=127.0.0.1:3306;dbname=vocaloid";
+        $dsn = "mysql:host=127.0.0.1:3307;dbname=vocaloid";
 
         /** Wanna keep the mysql user information (php data objects) in something.
          *  Not a new $connection identifier but a CLASS PROPERTY. So $this->connection
          */
-        $this->connection = new PDO($dsn, "root", "1234");
+        $this->connection = new PDO($dsn, "root", "etecjau");
     }
 
     public function insert(Model $model)
